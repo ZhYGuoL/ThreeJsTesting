@@ -20,7 +20,7 @@ document.body.appendChild( renderer.domElement );
 let geometry = new THREE.BoxGeometry();
 
 let material = new THREE.MeshBasicMaterial({
-	color: 0x00ff00,
+	color: 0xffffff,
 	wireframe: true
 });
 
@@ -38,7 +38,7 @@ function animate() {
 	object.rotation.x = yRotation;
 	object.rotation.y = yRotation;
 
-	object.material.color.setHex(0xffffff);
+	object.material.color.setHex(defaultColor);
 
 	renderer.render( scene, camera );
 };
