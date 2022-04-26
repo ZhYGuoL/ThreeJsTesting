@@ -20,7 +20,7 @@
     
     let Mesh;
     let light;
-    
+
 
     function init() {
         scene.background = new THREE.Color('black');
@@ -28,7 +28,6 @@
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
     }
-    
 
     function setLight() {
         light = new THREE.AmbientLight(0xffffff); // soft white light
