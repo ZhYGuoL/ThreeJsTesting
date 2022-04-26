@@ -55,15 +55,19 @@
             renderer.setSize(window.innerWidth, window.innerHeight)
             renderer.render(scene, camera)
         }
+        
 
 
     const controls = new THREE.OrbitControls( camera, renderer.domElement );
     controls.listenToKeyEvents(document.body);
+    controls.enableDampening = true
+
     controls.update();
     
 
     function animate() {
         requestAnimationFrame(animate);
+        controls.update();
         if (Mesh && Mesh.rotation) {
             Mesh.rotation.y -= 0.005;
         }
