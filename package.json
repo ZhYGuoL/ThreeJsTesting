@@ -3,5 +3,6 @@
     "@simonwep/pickr": "^1.8.2",
     "react-color": "^2.19.3",
     "tailwindcss": "^1.9.6"
-  }
+  },
+  "type": "module"
 }

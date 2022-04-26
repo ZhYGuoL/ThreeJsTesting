@@ -1,7 +1,7 @@
 {
     "files.exclude": {
         "package-lock.json": true,
-        "package.json": true,
+        "package.json": false,
         ".history/": true,
         "node_modules/": true
     }
