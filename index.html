@@ -5,6 +5,8 @@
     <style>
         body { margin: 0; }
     </style>
+    <!-- import style.css -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <!-- Three.js library -->
@@ -12,71 +14,6 @@
 <!-- GLTFLoader.js source -->
 <script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/OrbitControls.js"></script>
 <script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/loaders/GLTFLoader.js"></script>
-
-<script>
-    const renderer = new THREE.WebGLRenderer();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const scene = new THREE.Scene();
-    
-    let Mesh;
-    let light;
-
-
-    function init() {
-        scene.background = new THREE.Color('black');
-        camera.position.set(5, 0, 0);
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        document.body.appendChild(renderer.domElement);
-    }
-
-    function setLight() {
-        light = new THREE.AmbientLight(0xffffff); // soft white light
-        scene.add(light);
-    }
-    const dirLight1 = new THREE.DirectionalLight( 0xffffff );
-        dirLight1.position.set( 2, 1, 2 );
-        scene.add( dirLight1 );
-
-    let balloonLoader = new THREE.GLTFLoader();
-
-    balloonLoader.load('/Earth.gltf', (gltf) => {
-        Mesh = gltf.scene;
-        Mesh.scale.set(1, 1, 1);
-        scene.add(Mesh);
-        Mesh.position.x = 0;
-        Mesh.position.y = 0;
-        Mesh.position.z = 0;
-    });
-
-    window.addEventListener('resize', onWindowResize, false)
-        function onWindowResize() {
-            camera.aspect = window.innerWidth / window.innerHeight
-            camera.updateProjectionMatrix()
-            renderer.setSize(window.innerWidth, window.innerHeight)
-            renderer.render(scene, camera)
-        }
-        
-
-
-    const controls = new THREE.OrbitControls( camera, renderer.domElement );
-    controls.listenToKeyEvents(document.body);
-    controls.enableDampening = true
-
-    controls.update();
-    
-
-    function animate() {
-        requestAnimationFrame(animate);
-        controls.update();
-        if (Mesh && Mesh.rotation) {
-            Mesh.rotation.y -= 0.005;
-        }
-        renderer.render(scene, camera);
-    }
-
-    init();
-    setLight();
-    animate();
-</script>
+<script src="main.js"></script>
 </body>
 </html>
